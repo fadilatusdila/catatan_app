@@ -16,13 +16,16 @@ Including another URLconf
 """
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from notes.views import CategoryViewSet, NoteViewSet
+from notes.views import CategoryViewSet, NoteViewSet, TagViewSet, CommentViewSet
 
 router = DefaultRouter()
 router.register(r'categories', CategoryViewSet)
 router.register(r'notes', NoteViewSet)
+router.register(r'tags', TagViewSet)
+router.register(r'comments', CommentViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
 ]
+
 
