@@ -1,31 +1,31 @@
 from rest_framework import serializers
-from .models import Category, Note, Tag, Comment
+from .models import Kategori, Catatan, Tag, Komentar
 
-class CategorySerializer(serializers.ModelSerializer):
+class KategoriSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Category
-        fields = ['id', 'name']
+        model = Kategori
+        fields = ['id', 'nama']
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ['id', 'name']
+        fields = ['id', 'nama']
 
-class NoteSerializer(serializers.ModelSerializer):
-    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
+class CatatanSerializer(serializers.ModelSerializer):
+    kategori = serializers.PrimaryKeyRelatedField(queryset=Kategori.objects.all())
     tags = serializers.SlugRelatedField(
         many=True,
         queryset=Tag.objects.all(),
-        slug_field='name'
+        slug_field='nama'
     )
     
     class Meta:
-        model = Note
-        fields = ['id', 'title', 'content', 'category', 'tags']
+        model = Catatan
+        fields = ['id', 'judul', 'isi', 'kategori', 'tags']
 
-class CommentSerializer(serializers.ModelSerializer):
-    note = serializers.PrimaryKeyRelatedField(queryset=Note.objects.all())
+class KomentarSerializer(serializers.ModelSerializer):
+    catatan = serializers.PrimaryKeyRelatedField(queryset=Catatan.objects.all())
     
     class Meta:
-        model = Comment
-        fields = ['id', 'note', 'text', 'created_at']
+        model = Komentar
+        fields = ['id', 'catatan', 'teks', 'dibuat_pada']

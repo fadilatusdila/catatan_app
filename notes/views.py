@@ -1,19 +1,19 @@
 from rest_framework import viewsets
-from .models import Category, Note, Tag, Comment
-from .serializers import CategorySerializer, NoteSerializer, TagSerializer, CommentSerializer
+from .models import Kategori, Catatan, Tag, Komentar
+from .serializers import KategoriSerializer, CatatanSerializer, TagSerializer, KomentarSerializer
 
-class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+class KategoriViewSet(viewsets.ModelViewSet):
+    queryset = Kategori.objects.all()
+    serializer_class = KategoriSerializer
 
-class NoteViewSet(viewsets.ModelViewSet):
-    queryset = Note.objects.all()
-    serializer_class = NoteSerializer
+class CatatanViewSet(viewsets.ModelViewSet):
+    queryset = Catatan.objects.all()
+    serializer_class = CatatanSerializer
 
 class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
 
-class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
+class KomentarViewSet(viewsets.ModelViewSet):
+    queryset = Komentar.objects.all()
+    serializer_class = KomentarSerializer
