@@ -1,6 +1,9 @@
+# notes/views.py
+
 from rest_framework import viewsets
-from .models import Kategori, Catatan, Tag, Komentar
-from .serializers import KategoriSerializer, CatatanSerializer, TagSerializer, KomentarSerializer
+from .models import Catatan, Kategori, Tag, Komentar
+from .serializers import CatatanSerializer, KategoriSerializer, TagSerializer, KomentarSerializer
+
 
 class KategoriViewSet(viewsets.ModelViewSet):
     queryset = Kategori.objects.all()
